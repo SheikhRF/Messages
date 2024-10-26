@@ -3,6 +3,13 @@ from uagents import Agent, Context, Model
 class Message(Model):
     message: str
 
+class Request(Model):
+    text: str
+
+class Response(Model):
+    text: str
+    agent_address: str
+
 SEED_PHRASE = "ILoveSendingMessages"
  
 # Copy the address shown below
@@ -27,6 +34,16 @@ async def initialise(ctx: Context):
 @agent.on_message(model=Message, replies={Message})
 async def handle_message(ctx: Context, sender: str, msg: Message):
     ctx.logger.info(f"Received message from {sender}: {msg.message}")
+
+@agent.on_rest_post("/rest/post", Request, Response)
+async def handle_post(ctx: Context, req: Request) -> Response:
+    ctx.logger.info("Received POST request")
+    print(req.text)
+
+    # return Response(
+    #     text=finish,
+    #     agent_address=ctx.agent.address,
+    # )
 
 if __name__ == "__main__":
     agent.run()

@@ -32,12 +32,15 @@
 </head>
 <body>
     <script>
-        function send_message() {
-          // Get the input box value
-          const inputText = document.getElementById('inputBox').value;
-          // Display it in the output box
-          document.getElementById('output').innerText = inputText;
+        async function send_message() {
+            const inputText = document.getElementById('inputBox').value;
+            document.getElementById('output').innerText = inputText;
+            const response = await fetch("http://127.0.0.1:8000/rest/post", {
+            method: "POST",
+            body: JSON.stringify({ text: inputText })
+            });
         }
+        
     </script>
     <div id="container">
         <h2>Text Echo</h2>
