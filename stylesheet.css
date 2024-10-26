@@ -33,6 +33,7 @@ body {
 
 /* Chat container layout */
 .chat-container {
+    padding-top: 25%;
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -53,6 +54,7 @@ body {
     max-height: 200px;
     font-size: 1.1em;
     color: #333;
+    visibility: visible;
 }
 
 /* Input container styling */
