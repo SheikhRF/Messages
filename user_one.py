@@ -10,6 +10,7 @@ class Response(Model):
     text: str
     agent_address: str
 
+DESTINATION = "agent1q02jy3kk437pywwnjdrdqux44xksq9cg47n9gmwyu0ezegp0u5r675xkqre"
 SEED_PHRASE = "ILoveSendingMessages"
  
 # Copy the address shown below
@@ -29,7 +30,7 @@ agent = Agent(
 
 @agent.on_event("startup")
 async def initialise(ctx: Context):
-    await ctx.send("agent1q02jy3kk437pywwnjdrdqux44xksq9cg47n9gmwyu0ezegp0u5r675xkqre", Message(message="test"))
+    await ctx.send(DESTINATION, Message(message="Initialised, over."))
 
 @agent.on_message(model=Message, replies={Message})
 async def handle_message(ctx: Context, sender: str, msg: Message):
@@ -38,12 +39,8 @@ async def handle_message(ctx: Context, sender: str, msg: Message):
 @agent.on_rest_post("/rest/post", Request, Response)
 async def handle_post(ctx: Context, req: Request) -> Response:
     ctx.logger.info("Received POST request")
-    print(req.text)
+    await ctx.send(DESTINATION, Message(message=req.text))
 
-    # return Response(
-    #     text=finish,
-    #     agent_address=ctx.agent.address,
-    # )
 
 if __name__ == "__main__":
     agent.run()
