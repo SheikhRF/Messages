@@ -31,12 +31,19 @@
   </style>
 </head>
 <body>
-
-  <div id="container">
-    <h2>Text Echo</h2>
-    <input type="text" id="inputBox" placeholder="Type something here...">
-    <button onclick="displayText()">Show Text</button>
-    <div id="output"></div>
-  </div>
-
-  <
+    <script>
+        function send_message() {
+          // Get the input box value
+          const inputText = document.getElementById('inputBox').value;
+          // Display it in the output box
+          document.getElementById('output').innerText = inputText;
+        }
+    </script>
+    <div id="container">
+        <h2>Text Echo</h2>
+        <input type="text" id="inputBox" placeholder="Type something here...">
+        <button onclick="send_message()">SEND</button>
+        <div id="output"></div>
+    </div>
+</body>
+</html>
