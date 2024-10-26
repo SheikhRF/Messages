@@ -1,0 +1,91 @@
+/* General body styling */
+body {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    border-radius: 20px;
+    max-width: 100%;
+    background-color: #f3f3f3;
+}
+
+/* Heading styling */
+.heading-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    width: 100%;
+}
+
+/* Heading styling */
+#heading {
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    color: #89CFF0;
+    background-color: grey;
+    width: 90%; /* Set width to give room for rounding */
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px; /* Rounds the corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat container layout */
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px;
+    gap: 100px;
+}
+
+/* Output box styling */
+.output-box {
+    flex: 1;
+    background-color: #ffffff;
+    margin-top: 120px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 200px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Input container styling */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    width: 200px;
+}
+
+/* Input box styling */
+#inputBox {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Send button styling */
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #89CFF0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #77b5d9;
+}

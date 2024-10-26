@@ -4,49 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basic Webpage with Input and Output</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-    #container {
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-    }
-    input, button, #output {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-    #output {
-      background-color: #f0f0f0;
-      border: 1px solid #ddd;
-      min-height: 40px;
-    }
-  </style>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <script>
-        async function send_message() {
-            const inputText = document.getElementById('inputBox').value;
-            document.getElementById('output').innerText = inputText;
-            const response = await fetch("http://127.0.0.1:8000/rest/post", {
-            method: "POST",
-            body: JSON.stringify({ text: inputText })
-            });
-        }
-        
-    </script>
-    <div id="container">
-        <h2>Text Echo</h2>
-        <input type="text" id="inputBox" placeholder="Type something here...">
-        <button onclick="send_message()">SEND</button>
-        <div id="output"></div>
+  <script>
+    async function send_message() {
+      const inputText = document.getElementById('inputBox').value;
+      document.getElementById('outputBox').innerText = inputText;
+      document.getElementById('inputBox').value = '';  // Clear input after sending
+      await fetch("http://127.0.0.1:8000/rest/post", {
+        method: "POST",
+        body: JSON.stringify({ text: inputText })
+      });
+    }
+  </script>
+
+  <div id="heading">
+    <h2>HowsApp</h2>
+  </div>
+
+  <div class="chat-container">
+    <!-- Output box to display messages -->
+    <div id="outputBox" class="output-box">
+      <!-- Displayed messages will appear here -->
     </div>
+
+    <!-- Input area -->
+    <div id="inputContainer" class="input-container">
+      <input type="text" id="inputBox" placeholder="Type something here...">
+      <button onclick="send_message()">Send</button>
+    </div>
+  </div>
 </body>
 </html>
