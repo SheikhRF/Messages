@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Webpage with Input and Output</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    #container {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input, button, #output {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    #output {
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <h2>Text Echo</h2>
+    <input type="text" id="inputBox" placeholder="Type something here...">
+    <button onclick="displayText()">Show Text</button>
+    <div id="output"></div>
+  </div>
+
+  <
