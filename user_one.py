@@ -18,11 +18,15 @@ agent = Agent(
     mailbox=f"{AGENT_MAILBOX_KEY}@https://agentverse.ai",
 )
 
+# print(agent.address) agent1qd4mdj8rv6zkhf9zu2uhzct95egmzv60tx0q05kgw003983a40585sdttjp
+
+@agent.on_event("startup")
+async def initialise(ctx: Context):
+    ctx.send(message="Started", destination="")
+
 @agent.on_message(model=Message, replies={Message})
 async def handle_message(ctx: Context, sender: str, msg: Message):
     ctx.logger.info(f"Received message from {sender}: {msg.message}")
-
-
 
 if __name__ == "__main__":
     agent.run()
