@@ -41,7 +41,7 @@ async def handle_post(ctx: Context, req: Request) -> Response:
     return Response(text="Message sent", agent_address=DESTINATION)
 
 # Endpoint to retrieve messages
-@agent.on_rest_get("/rest/get_messages")
+@agent.on_rest_get("/rest/get_messages", Request, Response)
 async def get_messages(ctx: Context):
     # Return the list of received messages as a JSON response
     return received_messages
