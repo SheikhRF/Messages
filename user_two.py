@@ -1,4 +1,5 @@
 from uagents import Agent, Context, Model
+import json
 
 class Message(Model):
     message: str
