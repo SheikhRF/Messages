@@ -10,19 +10,30 @@
   <script>
     async function send_message() {
       const inputText = document.getElementById('inputBox').value;
-      // document.getElementById('outputBox').innerText = inputText;
       document.getElementById('inputBox').value = '';  // Clear input after sending
       await fetch("http://127.0.0.1:8000/rest/post", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({ text: inputText })
       });
     }
 
-    async function display_message() {
-      // receive data from post req made by python, containing new message in data ???
-      // await 
-      document.getElementById('outputBox').innerText = receivedText;  // displaying new message
+    async function fetch_messages() {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/rest/get_messages");
+        const messages = await response.json();
+        
+        // Display the messages in the output box
+        document.getElementById('outputBox').innerText = messages.join("\n");
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
     }
+
+    // Poll for new messages every 2 seconds
+    setInterval(fetch_messages, 2000);
   </script>
 
   <div id="heading">
