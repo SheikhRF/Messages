@@ -24,7 +24,7 @@
         console.log('asdf')
         
         // Display the messages in the output box
-        document.getElementById('outputBox').innerText = messages.join("\n");
+        document.getElementById('outputBox').innerText = messages;
       } catch (error) {
         console.error("Error fetching messages:", error);
       }
@@ -33,6 +33,7 @@
     // Poll for new messages every 2 seconds
     try {
       setInterval(fetch_messages, 2000);
+      console.log("this worked")
     } catch (error) {
       console.log("willy")
     }
