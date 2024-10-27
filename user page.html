@@ -13,14 +13,17 @@
       document.getElementById('inputBox').value = '';  // Clear input after sending
       await fetch("http://127.0.0.1:8000/rest/post", {
         method: "POST",
-        body: JSON.stringify({ text: inputText })
+        body: JSON.stringify({text: inputText})
       });
     }
 
     async function fetch_messages() {
       try {
         const response = await fetch("http://127.0.0.1:8000/rest/get_messages");
-        const messages = await response.json();
+        var messages = await response.json();
+        messages = toString(messages)
+        console.log(messages)
+        // messages = JSON.parse({text: })
         
         // Display the messages in the output box
         document.getElementById('outputBox').innerText = messages;
