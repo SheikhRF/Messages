@@ -13,9 +13,9 @@
       document.getElementById('inputBox').value = '';  // Clear input after sending
       await fetch("http://127.0.0.1:8000/rest/post", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        //headers: {
+        //  "Content-Type": "application/json"
+        //},
         body: JSON.stringify({ text: inputText })
       });
     }
