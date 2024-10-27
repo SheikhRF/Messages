@@ -10,12 +10,18 @@
   <script>
     async function send_message() {
       const inputText = document.getElementById('inputBox').value;
-      document.getElementById('outputBox').innerText = inputText;
+      // document.getElementById('outputBox').innerText = inputText;
       document.getElementById('inputBox').value = '';  // Clear input after sending
       await fetch("http://127.0.0.1:8000/rest/post", {
         method: "POST",
         body: JSON.stringify({ text: inputText })
       });
+    }
+
+    async function display_message() {
+      // receive data from post req made by python, containing new message in data ???
+      // await 
+      document.getElementById('outputBox').innerText = receivedText;  // displaying new message
     }
   </script>
 

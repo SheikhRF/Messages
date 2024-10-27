@@ -1,5 +1,7 @@
 from uagents import Agent, Context, Model
 from time import sleep
+from requests import post, get
+import json
 
 class Message(Model):
     message: str
@@ -24,6 +26,7 @@ agent = Agent(
 @agent.on_message(model=Message, replies={Message})
 async def handle_message(ctx: Context, sender: str, msg: Message):
     ctx.logger.info(f"Received message from {sender}: {msg.message}")
+    await post("http://127.0.0.1:8000/rest/post", json.dumps(msg.message))
 
 @agent.on_rest_post("/rest/post", Request, Response)
 async def handle_post(ctx: Context, req: Request) -> Response:
