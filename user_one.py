@@ -31,6 +31,7 @@ received_messages = []
 async def handle_message(ctx: Context, sender: str, msg: Message):
     ctx.logger.info(f"Received message from {sender}: {msg.message}")
     received_messages.append(msg.message)  # Store the incoming message
+    print(received_messages)
 
 @agent.on_rest_post("/rest/post", Request, Response)
 async def handle_post(ctx: Context, req: Request) -> Response:
@@ -42,6 +43,7 @@ async def handle_post(ctx: Context, req: Request) -> Response:
 @agent.on_rest_get("/rest/get_messages", Response)
 async def get_messages(ctx: Context):
     # Return the list of received messages as a JSON response
+    print(received_messages)
     return received_messages
 
 if __name__ == "__main__":
