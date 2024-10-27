@@ -23,12 +23,18 @@
         var messages = await response.json();
         messages = toString(messages)
         console.log(messages)
-        // messages = JSON.parse({text: })
-        
-        // Display the messages in the output box
-        document.getElementById('outputBox').innerText = messages;
-      } catch (error) {
-        console.log("Error fetching messages");
+
+        if (messages=="[object Undefined]") {}
+        else {
+          try {
+          document.getElementById('outputBox').innerText = messages;
+        } catch (error) {
+          console.log("Error fetching messages");
+        }
+        }
+      }
+      catch (error) {
+        console.log("peen")
       }
     }
 
