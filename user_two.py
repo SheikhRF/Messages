@@ -44,7 +44,7 @@ async def handle_post(ctx: Context, req: Request) -> Response:
 @agent.on_rest_get("/rest/get_messages", Response)
 async def get_messages(ctx: Context):
     # Return the list of received messages as a JSON response
-    return received_messages
+    return json.dumps(received_messages)
 
 if __name__ == "__main__":
     agent.run()
