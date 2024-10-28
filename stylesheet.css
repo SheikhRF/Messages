@@ -71,7 +71,7 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
