@@ -48,3 +48,5 @@ async def get_messages(ctx: Context):
 
 if __name__ == "__main__":
     agent.run()
+
+from app import routes
